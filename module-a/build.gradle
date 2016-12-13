@@ -1,0 +1,19 @@
+apply plugin: 'java'
+
+sourceSets {
+    api {
+        java.srcDirs = ["${projectDir}/src/api/java"]
+    }
+    main {
+        compileClasspath += api.output
+        runtimeClasspath += api.output
+    }
+    test {
+        compileClasspath += api.output
+        runtimeClasspath += api.output
+    }
+}
+
+jar.from sourceSets.api.output
+
+  
